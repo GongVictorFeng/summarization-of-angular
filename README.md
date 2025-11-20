@@ -9,7 +9,7 @@
   ![alt text](assets/data-in-view.png)
 
 - Pass data to the template: property binding
-  ![alt text](assets/defining-custom-template.png)
+  ![alt text](assets/property-binding.png)
 
 - Handle browser native events: event binding:
   ![alt text](assets/event-binding.png)
