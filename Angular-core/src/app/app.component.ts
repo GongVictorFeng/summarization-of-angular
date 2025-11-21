@@ -1,20 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CourseCardComponent } from './course-card/course-card.component';
+import { COURSES } from '../db-data';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CourseCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Angular-core';
-
-  onLogoClicked() {
-    alert('Hello World');
-  }
-
-  onKeyUp(titleValue: string) {
-    this.title = titleValue;
-  }
+  coreCourse = COURSES[0];
+  rxjsCourse = COURSES[1];
+  ngrxCourse = COURSES[2];
 }
