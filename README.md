@@ -22,7 +22,15 @@
     ![alt text](assets/escaping.png)
 
 - Create a custom HTML element: https://github.com/GongVictorFeng/summarization-of-angular/commit/b20c37559d6f2b202bfaed92c3dafe14fac501c3
+
 - Add configurable property for the custome HTML element:
+
   - created a custom javascript object type for type safety: https://github.com/GongVictorFeng/summarization-of-angular/commit/23ac69d0900e7dfeadc9f909ece3813c214a84cc
   - made course a configuration property and use it in the template: https://github.com/GongVictorFeng/summarization-of-angular/commit/9cd55eb7b8a341320f3239d3df2e05f26411a5d7
   - injected the data to the course card element: https://github.com/GongVictorFeng/summarization-of-angular/commit/51329dae67e318c6a222f90e6a787c24dd707bec
+
+- emit custom events:
+  - Add a standard browser event - will bubble up: https://github.com/GongVictorFeng/summarization-of-angular/commit/6c875fd83c3a5357e79c315c0304f004d32a0c2a
+    ![alt text](assets/emit-standard-browser-event.png)
+  - Add a custom event - will not bubble up: https://github.com/GongVictorFeng/summarization-of-angular/commit/0e555864190f1c44ece88a67e381076882f4f772
+    ![alt text](assets/emit-custom-event.png)
