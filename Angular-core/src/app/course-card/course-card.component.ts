@@ -12,4 +12,8 @@ export class CourseCardComponent {
     required: true,
   })
   course!: Course;
+
+  onCourseViewed() {
+    console.log('card component - button clicked ...');
+  }
 }
