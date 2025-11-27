@@ -15,4 +15,9 @@ export class AppComponent {
   onCourseSelected(course: Course) {
     console.log('App component - click event bubbled ...', course);
   }
+
+  //The first argument of tracking function is index, the second one is the element in the iterable
+  trackCourse(index: number, course: Course) {
+    return course.id;
+  }
 }
