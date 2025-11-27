@@ -30,7 +30,24 @@
   - injected the data to the course card element: https://github.com/GongVictorFeng/summarization-of-angular/commit/51329dae67e318c6a222f90e6a787c24dd707bec
 
 - emit custom events:
+
   - Add a standard browser event - will bubble up: https://github.com/GongVictorFeng/summarization-of-angular/commit/6c875fd83c3a5357e79c315c0304f004d32a0c2a
     ![alt text](assets/emit-standard-browser-event.png)
   - Add a custom event - will not bubble up: https://github.com/GongVictorFeng/summarization-of-angular/commit/0e555864190f1c44ece88a67e381076882f4f772
     ![alt text](assets/emit-custom-event.png)
+
+- Control Flow Syntax
+  - @for - loop through an array and avoid doing duplicate code: https://github.com/GongVictorFeng/summarization-of-angular/commit/2d4a11d5c232988253c55c317a4dba017adfd46f
+    ![alt text](assets/@for-syntax.png)
+    - $index - variable contains the index of element being currently iterated
+    - $count - contains the number of elements in the iterable
+    - $first - identifies the first element
+    - $last - identifies the last element
+    - $even - identifies the index assigned is even number
+    - $odd - identifies the index assigned is odd number
+    - tracking function - helps uniquely identify each element. it helps Angular, especially the @for syntax to optimize the way in which the Dom gets rendered. Angular will differentiate new version of the list with the old version, only render the updated part. For instance, if you add a new element to the list, Angular can only render the new one rather than rendering the whole list again with the help of unique identifier.
+      - Angular allow to write custom tracking function: https://github.com/GongVictorFeng/summarization-of-angular/commit/326504fc66b1d482d59c8d204da15db7026422ad
+    - @empty allow you to display something in place of the list looping through in case the list is empty
+      ![alt text](assets/@empty.png)
+  - @if - conditional rendering: https://github.com/GongVictorFeng/summarization-of-angular/commit/1cfb1d93b65d696dfb0ff543f0878499f2f49e19#diff-88dcff618eb27f9c6b7323b3cd09d8e379407e852324e690fb22ce266680afd4
+    ![alt text](assets/@if-syntax.png)
