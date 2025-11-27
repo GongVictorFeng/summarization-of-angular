@@ -6,10 +6,9 @@
 </div>
 
 <div class="courses">
-  @for (course of courses; track trackCourse($index, course); let index =
-  $index; let count = $count; let first = $first; let last = $last; let odd =
-  $odd; let even = $even) {
-  <h1>Count: {{ count }}</h1>
+  @for (course of courses; track course.id; let index = $index; let count =
+  $count; let first = $first; let last = $last; let odd = $odd; let even =
+  $even) {
   <course-card
     (courseSelected)="onCourseSelected($event)"
     [index]="index"
