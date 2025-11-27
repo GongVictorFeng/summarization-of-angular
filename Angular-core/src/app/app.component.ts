@@ -10,9 +10,7 @@ import { Course } from '../model/course';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  coreCourse = COURSES[0];
-  rxjsCourse = COURSES[1];
-  ngrxCourse = COURSES[2];
+  courses: Course[] = [...COURSES];
 
   onCourseSelected(course: Course) {
     console.log('App component - click event bubbled ...', course);
