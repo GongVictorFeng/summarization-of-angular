@@ -1,9 +1,7 @@
-<div class="course-card">
+<div class="course-card" [ngClass]="cardClasses()">
   <div class="course-title">{{ index }}. {{ course.description }}</div>
 
-  @if (course.id == 1) {
-  <h2>course with ID 1 is detected</h2>
-  } @else if (course.iconUrl) {
+  @if (course.iconUrl) {
   <img width="300" alt="Angular Logo" [src]="course.iconUrl" />
   } @else {
   <h2>No image available</h2>
