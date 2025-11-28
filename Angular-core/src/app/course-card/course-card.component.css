@@ -1,3 +1,15 @@
 .course-card.beginner {
   background: lightsalmon;
 }
+
+.course-card .category {
+  width: max-content; /* shrink to content */
+  margin-inline: auto; /* center horizontally */
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: #e7eff4;
+  color: #0f172a;
+  border: 1px solid #d6e3ea;
+  font-weight: 600;
+  line-height: 1;
+}
