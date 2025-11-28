@@ -36,9 +36,11 @@
   - Add a custom event - will not bubble up: https://github.com/GongVictorFeng/summarization-of-angular/commit/0e555864190f1c44ece88a67e381076882f4f772
     ![alt text](assets/emit-custom-event.png)
 
-- Control Flow Syntax
+- Control Flow Syntax and core directives
+
   - @for - loop through an array and avoid doing duplicate code: https://github.com/GongVictorFeng/summarization-of-angular/commit/2d4a11d5c232988253c55c317a4dba017adfd46f
     ![alt text](assets/@for-syntax.png)
+
     - $index - variable contains the index of element being currently iterated
     - $count - contains the number of elements in the iterable
     - $first - identifies the first element
@@ -49,5 +51,23 @@
       - Angular allow to write custom tracking function: https://github.com/GongVictorFeng/summarization-of-angular/commit/326504fc66b1d482d59c8d204da15db7026422ad
     - @empty allow you to display something in place of the list looping through in case the list is empty
       ![alt text](assets/@empty.png)
+
   - @if - conditional rendering: https://github.com/GongVictorFeng/summarization-of-angular/commit/1cfb1d93b65d696dfb0ff543f0878499f2f49e19#diff-88dcff618eb27f9c6b7323b3cd09d8e379407e852324e690fb22ce266680afd4
     ![alt text](assets/@if-syntax.png)
+
+  - ngClass - conditional styles that are added or remove classes to sections of the page depending on the state
+
+    - we can pass an array, a string and a configuration object
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/7642daba0490c113474a9ad07363c4ec0ce72a7a
+      ![alt text](assets/ngclass.png)
+
+  - ngstyle - apply a style directly to a component
+
+    - pass configuration object for multiple styles
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/713d9aa56d7bb46cb56224a08b248bd91ba2511c
+    - ![alt text](assets/ngstyle.png)
+
+  - styling components
+    - style with plain CSS classes - most common
+    - ngclass for adding and removing classes depending on the state - only for CSS state classes
+    - ngstyle for CSS properties that we want to populate depending on the data - background image
