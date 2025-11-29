@@ -1,10 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../model/course';
-import { NgClass, NgStyle } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'course-card',
-  imports: [NgClass, NgStyle],
+  imports: [NgClass, NgIf],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
 })
@@ -36,11 +36,5 @@ export class CourseCardComponent {
     if (this.course.category == 'BEGINNER') return 'beginner';
     // return a array
     if (this.course.category == 'BEGINNER') return ['beginner'];
-  }
-
-  cardStyles() {
-    return {
-      'background-image': 'url(' + this.course.iconUrl + ')',
-    };
   }
 }
