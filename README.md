@@ -68,6 +68,12 @@
     - ![alt text](assets/ngstyle.png)
 
   - styling components
+
     - style with plain CSS classes - most common
     - ngclass for adding and removing classes depending on the state - only for CSS state classes
     - ngstyle for CSS properties that we want to populate depending on the data - background image
+
+  - @switch - conditional rendering: https://github.com/GongVictorFeng/summarization-of-angular/commit/8074d41ed6b0fa5ec818a4e1330ee9147242d449
+  - ngContainer - component does not have a top level element. No need to create extra wrapper elements just to apply a structure directive, we can instead use the NG container directive
+    - wrapping container element, we can apply a strucutre directive
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/12c80f9d892a877541a168a36211272f7645e312
