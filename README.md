@@ -77,3 +77,10 @@
   - ngContainer - component does not have a top level element. No need to create extra wrapper elements just to apply a structure directive, we can instead use the NG container directive
     - wrapping container element, we can apply a strucutre directive
     - https://github.com/GongVictorFeng/summarization-of-angular/commit/12c80f9d892a877541a168a36211272f7645e312
+  - Angular pipe - a template mechanism that we can use to transform data and display it in another form to the user
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/2f38c6e7092d310062d3032a0dceeb86e83c1931
+      ![alt text](assets/pipe.png)
+    - Besides pipes for formatting strings or numeric amount, there are built-in pipes for handling collections of data like `slice`
+    - Json pipe and keyvalue pipe are quite useful for debugging
+      ![alt text](assets/json-pipe.png)
+      ![alt text](assets/keyvalue-pipe.png)
