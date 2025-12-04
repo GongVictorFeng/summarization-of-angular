@@ -84,3 +84,32 @@
     - Json pipe and keyvalue pipe are quite useful for debugging
       ![alt text](assets/json-pipe.png)
       ![alt text](assets/keyvalue-pipe.png)
+
+- Local Template Querying
+  - interaction between components or different elements of the template by simply using template references and accessing the element directly in the template
+  - adding template references with logics in the level of template is not sufficient
+  - component needs reference to some of the element in the template
+  - template query for obtaining a reference to an element in the template and access it at the level of component class
+  - @ViewChild:
+    https://github.com/GongVictorFeng/summarization-of-angular/commit/0e2ecb4270e465b3bd3fcbc69466438b30bd7c31
+    ![alt text](assets/template-querying.png)
+    - if the query has multiple matching elements, the first matching element will be gotten
+      ![alt text](assets/multiple-match.png)
+    - query based on the name of the reference
+      ![alt text](assets/query-base-on-reference-name.png)
+    - query plain HTML element
+      ![alt text](assets/query-plain-html.png)
+    - query plain HTML element instead of component instance - passing an option object
+      ![alt text](assets/query-html-element-from-component.png)
+  - AfterViewInit lifecycle Hook
+    - @ViewChild variable are not defined in constrution
+      ![alt text](assets/view-child-variable-during-construstion.png)
+    - ngAfterViewInit funtion is the earliest possible moment that all references populated by @ViewChild are available
+    - the Angular framework will call this function after the references are filled in
+      ![alt text](assets/references-after-view-init.png)
+    - note: never modify data while using lifecycle hook
+    - can not query deeper into the component hierarchy - the scope of the view child decorator query are restricted to the template of the component itself
+      ![alt text](assets/view-child-scope.png)
+  - @ViewChildren - get a reference to the complete collection
+    https://github.com/GongVictorFeng/summarization-of-angular/commit/1a6070e92818201ee33f517acd3e8a4188f9f170
+    ![alt text](assets/view-children.png)
