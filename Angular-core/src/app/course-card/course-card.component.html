@@ -1,6 +1,6 @@
 <ng-container *ngIf="course">
   <div class="course-card" [ngClass]="cardClasses()">
-    <div class="course-title">{{ index }}. {{ course.description }}</div>
+    <div class="course-title">{{ course.description }}</div>
 
     @if (course.iconUrl) {
     <img width="300" alt="Angular Logo" [src]="course.iconUrl" />
@@ -13,8 +13,8 @@
 
     @switch (course.category) { @case ('BEGINNER') {
     <div class="category">Beginner</div>
-    } @case ('INTERMIDIATE') {
-    <div class="category">Intermidiate</div>
+    } @case ('INTERMEDIATE') {
+    <div class="category">Intermediate</div>
     } @case ('ADVANCED') {
     <div class="category">Advanced</div>
     } @default {

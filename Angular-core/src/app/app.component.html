@@ -4,26 +4,10 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
 </div>
-<div class="demo">
-  <div>{{ startDate | date : "MMM/dd/yyyy" }}</div>
-  <div>{{ title | uppercase }}</div>
-  <div>{{ price | number : "3.3-5" }}</div>
-</div>
 
 <div class="courses">
-  @for (course of courses | slice : 0 : 2; track course.id; let index = $index;
-  let count = $count; let first = $first; let last = $last; let odd = $odd; let
-  even = $even) {
   <course-card
     (courseSelected)="onCourseSelected($event)"
-    [index]="index"
-    [course]="course"
-    [class.is-first]="first"
-    [class.is-last]="last"
-    [class.is-odd]="odd"
-    [class.is-even]="even"
+    [course]="courses[0]"
   ></course-card>
-  } @empty {
-  <h1>No courses found!</h1>
-  }
 </div>
