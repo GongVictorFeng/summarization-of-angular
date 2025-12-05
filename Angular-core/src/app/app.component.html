@@ -5,11 +5,14 @@
   />
 </div>
 
+@if (courses.length > 0) {
 <div class="courses">
-  @for (course of courses; track course.id) {
   <course-card
     (courseSelected)="onCourseSelected($event)"
-    [course]="course"
-  ></course-card>
-  }
+    [course]="courses[0]"
+  >
+    <!-- pass course image as the content of the course card  -->
+    <img width="300" alt="Angular Logo" [src]="courses[0].iconUrl" />
+  </course-card>
 </div>
+}
