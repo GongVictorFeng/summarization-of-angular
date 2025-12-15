@@ -12,7 +12,15 @@
     [course]="courses[0]"
   >
     <!-- pass course image as the content of the course card  -->
-    <img width="300" alt="Angular Logo" [src]="courses[0].iconUrl" />
+    <div class="course-image">
+      <img width="300" alt="Angular Logo" [src]="courses[0].iconUrl" />
+      <h5>total Lessons: 5</h5>
+    </div>
+
+    <div class="course-description">
+      {{ courses[0].longDescription }}
+    </div>
+    <div class="textarea">Edit Description: <textarea></textarea></div>
   </course-card>
 </div>
 }
