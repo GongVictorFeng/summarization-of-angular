@@ -115,24 +115,27 @@
     https://github.com/GongVictorFeng/summarization-of-angular/commit/1a6070e92818201ee33f517acd3e8a4188f9f170
     ![alt text](assets/view-children.png)
 
-  - Content Projection
-    - content projection is all about making configurable components
-    - ng-content to project the content we passed
-      https://github.com/GongVictorFeng/summarization-of-angular/commit/5062d30d99258e2d021421ed47aa883df2e99464
-      ![alt text](assets/content-projection.png)
-    - any content between the opening and the closing tag is projected in the template using ng-content
-    - partial projection - using select to choose what to project
-      - ![alt text](assets/project-only-img.png) - element selector
-      - ![alt text](assets/class-selector.png)
-    - multi-slot projection
-      - https://github.com/GongVictorFeng/summarization-of-angular/commit/8303969b6cbf40d1ddfbfae1a870fe26d5be7865
-      - ![alt text](assets/multi-slot-projection.png)
-      - remainding parts can be project by simply using ng-content without selector
-    - get references to the projected content
-      - ViewChild decorator can only query elements that are visible inside the template, it cannot query the projected content
-      - Use @ContentChild or @ContentChildren to query projected content
-        - https://github.com/GongVictorFeng/summarization-of-angular/commit/46d5549290977c7414048aec3f553a5250209d2b
-        - ![alt text](assets/projected-content-reference.png)
-      - The scope of the content child query is restricted inside the ng-content - it is restricted to the content part of the component
-        - ![alt text](assets/scope-of-content-child.png)
-        - the earliest possible momnent for contend child is the AfterContentInit lifecycle hook
+- Content Projection
+
+  - content projection is all about making configurable components
+  - ng-content to project the content we passed
+    https://github.com/GongVictorFeng/summarization-of-angular/commit/5062d30d99258e2d021421ed47aa883df2e99464
+    ![alt text](assets/content-projection.png)
+  - any content between the opening and the closing tag is projected in the template using ng-content
+  - partial projection - using select to choose what to project
+    - ![alt text](assets/project-only-img.png) - element selector
+    - ![alt text](assets/class-selector.png)
+  - multi-slot projection
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/8303969b6cbf40d1ddfbfae1a870fe26d5be7865
+    - ![alt text](assets/multi-slot-projection.png)
+    - remainding parts can be project by simply using ng-content without selector
+  - get references to the projected content
+    - ViewChild decorator can only query elements that are visible inside the template, it cannot query theprojected content
+    - Use @ContentChild or @ContentChildren to query projected content
+      - https://github.com/GongVictorFeng/summarization-of-angular/commit/46d5549290977c7414048aec3f553a5250209d2b
+      - ![alt text](assets/projected-content-reference.png)
+    - The scope of the content child query is restricted inside the ng-content - it is restricted to the contentpart of the component
+      - ![alt text](assets/scope-of-content-child.png)
+      - the earliest possible momnent for contend child is the AfterContentInit lifecycle hook
+
+- NG Template
