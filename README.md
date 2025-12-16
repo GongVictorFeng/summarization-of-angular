@@ -139,4 +139,14 @@
       - the earliest possible momnent for contend child is the AfterContentInit lifecycle hook
 
 - NG Template
-  - referencing a block of a template using a template reference - any HTML and CSS that is going to be filled in inside the NG template is going to be part of this template
+  - referencing a block of a template using a template reference - any HTML and CSS that is going to be filled in inside the NG template is going to be part of this template segment
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/5bd370c040c1924a74916b5df9740576282d6703
+    - ![alt text](Angular-core/public/assets/ng-template.png)
+    - the template is not existing in the page, only if we explicitly use it somewhere
+    - the data that is visible from the parents is also visible in the ng template
+  - ng template variable context and ng template outlet
+    - provide the template with its own private variable context that is only visible inside the template
+    - pass the tempate as an input parameter
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/3f81c1738dc2fcc7e44f5e9a0df2dcc5beb9ffcb
+    - ![alt text](Angular-core/public/assets/template-as-input.png)
+    - ![alt text](Angular-core/public/assets/template-as-input-part.png)
