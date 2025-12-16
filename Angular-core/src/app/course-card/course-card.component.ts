@@ -6,13 +6,14 @@ import {
   ContentChild,
   ElementRef,
   AfterViewInit,
+  TemplateRef,
 } from '@angular/core';
 import { Course } from '../../model/course';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'course-card',
-  imports: [NgClass, NgIf],
+  imports: [NgClass, NgIf, NgTemplateOutlet],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
 })
@@ -21,6 +22,9 @@ export class CourseCardComponent implements AfterViewInit {
     required: true,
   })
   course!: Course;
+
+  @Input()
+  emptyImgTml!: TemplateRef<any>;
 
   @Output()
   courseSelected = new EventEmitter<Course>();
