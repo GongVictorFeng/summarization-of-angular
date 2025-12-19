@@ -9,11 +9,11 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { Course } from '../../model/course';
-import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'course-card',
-  imports: [NgClass, NgIf, NgTemplateOutlet],
+  imports: [NgClass, NgTemplateOutlet],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
 })
