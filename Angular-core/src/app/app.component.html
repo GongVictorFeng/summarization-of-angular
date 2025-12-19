@@ -12,12 +12,14 @@
     [course]="courses[0]"
   >
     <!-- pass course image as the content of the course card  -->
-    <course-image [src]="courses[0].iconUrl"></course-image>
+    <course-image
+      class="course-image"
+      [src]="courses[0].iconUrl"
+    ></course-image>
 
     <div class="course-description">
       {{ courses[0].longDescription }}
     </div>
-    <div class="textarea">Edit Description: <textarea></textarea></div>
   </course-card>
 </div>
 }
