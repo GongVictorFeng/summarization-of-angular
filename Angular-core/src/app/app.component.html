@@ -7,20 +7,12 @@
 
 @if (courses.length > 0) {
 <div class="courses">
-  <ng-template #blankImage let-courseName="description">
-    <p class="warn">{{ courseName }} No image is available yet</p>
-    <img src="/assets/empty-image.png" />
-  </ng-template>
   <course-card
     (courseSelected)="onCourseSelected($event)"
     [course]="courses[0]"
-    [emptyImgTml]="blankImage"
   >
     <!-- pass course image as the content of the course card  -->
-    <div class="course-image" #courseImage>
-      <img width="300" alt="Angular Logo" [src]="courses[0].iconUrl" />
-      <h5>total Lessons: 5</h5>
-    </div>
+    <course-image [src]="courses[0].iconUrl"></course-image>
 
     <div class="course-description">
       {{ courses[0].longDescription }}

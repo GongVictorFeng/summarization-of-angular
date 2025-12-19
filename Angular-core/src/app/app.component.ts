@@ -9,10 +9,11 @@ import {
 import { CourseCardComponent } from './course-card/course-card.component';
 import { COURSES } from '../db-data';
 import { Course } from '../model/course';
+import { CourseImageComponent } from './course-image/course-image.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CourseCardComponent],
+  imports: [CourseCardComponent, CourseImageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
