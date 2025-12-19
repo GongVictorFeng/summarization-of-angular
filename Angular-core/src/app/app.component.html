@@ -8,7 +8,7 @@
 @if (courses.length > 0) {
 <div class="courses">
   <course-card
-    [highlighted]="true"
+    [highlighted]="false"
     (courseSelected)="onCourseSelected($event)"
     [course]="courses[0]"
   >
