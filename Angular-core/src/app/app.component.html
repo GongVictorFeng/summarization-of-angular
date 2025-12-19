@@ -8,6 +8,7 @@
 @if (courses.length > 0) {
 <div class="courses">
   <course-card
+    highlighted
     (courseSelected)="onCourseSelected($event)"
     [course]="courses[0]"
   >
