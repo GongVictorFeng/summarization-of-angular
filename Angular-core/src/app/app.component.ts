@@ -1,19 +1,18 @@
 import {
   AfterViewInit,
   Component,
-  ElementRef,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { COURSES } from '../db-data';
 import { Course } from '../model/course';
 import { CourseImageComponent } from './course-image/course-image.component';
+import { HighlightedDirective } from './directives/highlighted.directive';
 
 @Component({
   selector: 'app-root',
-  imports: [CourseCardComponent, CourseImageComponent],
+  imports: [CourseCardComponent, CourseImageComponent, HighlightedDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
