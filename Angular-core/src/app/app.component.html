@@ -9,6 +9,7 @@
 <div class="courses">
   <course-card
     [highlighted]="false"
+    (toggleHighlight)="onToggle($event)"
     (courseSelected)="onCourseSelected($event)"
     [course]="courses[0]"
   >

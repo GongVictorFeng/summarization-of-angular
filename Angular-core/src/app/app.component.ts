@@ -26,6 +26,9 @@ export class AppComponent implements AfterViewInit {
     console.log(this.cards);
   }
 
+  onToggle(isHighlighted: boolean) {
+    console.log(isHighlighted);
+  }
   onCourseSelected(course: Course) {}
 
   //The first argument of tracking function is index, the second one is the element in the iterable
