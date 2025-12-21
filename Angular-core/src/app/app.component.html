@@ -18,6 +18,7 @@
       <course-image
         class="course-image"
         [src]="courses[0].iconUrl"
+        *ngxUnless="!courses[0].iconUrl"
       ></course-image>
 
       <div class="course-description" (dblclick)="highlighter.toggle()">

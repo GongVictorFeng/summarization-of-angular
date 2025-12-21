@@ -11,6 +11,7 @@ import { Course } from '../model/course';
 import { CourseImageComponent } from './course-image/course-image.component';
 import { HighlightedDirective } from './directives/highlighted.directive';
 import { NgIf } from '@angular/common';
+import { NgxUnlessDirective } from './directives/ngx-unless.directive';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { NgIf } from '@angular/common';
     CourseImageComponent,
     HighlightedDirective,
     NgIf,
+    NgxUnlessDirective,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
