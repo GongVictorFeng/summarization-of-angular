@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { CourseCardComponent } from './course-card/course-card.component';
@@ -19,11 +20,14 @@ import { HighlightedDirective } from './directives/highlighted.directive';
 export class AppComponent implements AfterViewInit {
   courses: Course[] = [...COURSES];
 
+  @ViewChild(HighlightedDirective)
+  highlighted!: HighlightedDirective;
+
   @ViewChildren(CourseCardComponent)
   cards!: QueryList<CourseCardComponent>;
 
   ngAfterViewInit(): void {
-    console.log(this.cards);
+    console.log(this.highlighted);
   }
 
   onToggle(isHighlighted: boolean) {
