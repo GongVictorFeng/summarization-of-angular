@@ -139,6 +139,7 @@
       - the earliest possible momnent for contend child is the AfterContentInit lifecycle hook
 
 - NG Template
+
   - referencing a block of a template using a template reference - any HTML and CSS that is going to be filled in inside the NG template is going to be part of this template segment
     - https://github.com/GongVictorFeng/summarization-of-angular/commit/5bd370c040c1924a74916b5df9740576282d6703
     - ![alt text](Angular-core/public/assets/ng-template.png)
@@ -150,3 +151,22 @@
     - https://github.com/GongVictorFeng/summarization-of-angular/commit/3f81c1738dc2fcc7e44f5e9a0df2dcc5beb9ffcb
     - ![alt text](Angular-core/public/assets/template-as-input.png)
     - ![alt text](Angular-core/public/assets/template-as-input-part.png)
+
+- Directives
+  - Directives are classes that add additional behavior to elements
+    - Structural Directives - change the DOM layout by adding, removing, or manipulating elements
+    - Attribute Directives - change the appearance or behavior of an element, component, or another directive without affecting the DOM structure
+    - Attribute directive interacts with the host element they applied
+      - Modifying property or attributes: https://github.com/GongVictorFeng/summarization-of-angular/commit/a23a884481d0367989464f4b8b1cb4eb94638481
+        ![alt text](Angular-core/public/assets/added-css-by-host-binding.png)
+        ![alt text](Angular-core/public/assets/host-binding-to-set-dom-attributes.png)
+      - Via events: https://github.com/GongVictorFeng/summarization-of-angular/commit/5e2924064dca43f6dced7b289f998c41c1d5b1c4
+        ![alt text](Angular-core/public/assets/interact-with-host-via-dom-event.png)
+      - Use directive to emit custom event: https://github.com/GongVictorFeng/summarization-of-angular/commit/d01022dd2c1d0639b7781c45c06816c3e8f1b312
+        ![alt text](Angular-core/public/assets/use-directive-to-emit-custom-event.png)
+    - Access directive directly either on the template or the application component where the directive is applied
+      - directive `exportAs` functionality - making directive available on template or component: https://github.com/GongVictorFeng/summarization-of-angular/commit/071a23732d36a5af889877a07ae324984793afd7
+        ![alt text](Angular-core/public/assets/get-reference-of-directive.png)
+    - structural directive has the ability to instantiate a template
+      - ngIf is the shorthand for `<ng-template [ngIf]=""></ng-template>`: https://github.com/GongVictorFeng/summarization-of-angular/commit/327904af32893baa68809d6f9516640cd78f9cdf
+      - create custom structural directive: https://github.com/GongVictorFeng/summarization-of-angular/commit/a81da0d986f897054d3ddf9fca4e91f14170ac06
