@@ -40,6 +40,10 @@
   margin-top: 15px;
 }
 
+:host-context(.salmon-theme) .course-card {
+  background: lightsalmon;
+}
+
 .course-card.beginner {
   background: lightsalmon;
 }
