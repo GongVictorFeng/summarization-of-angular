@@ -153,6 +153,7 @@
     - ![alt text](Angular-core/public/assets/template-as-input-part.png)
 
 - Directives
+
   - Directives are classes that add additional behavior to elements
     - Structural Directives - change the DOM layout by adding, removing, or manipulating elements
     - Attribute Directives - change the appearance or behavior of an element, component, or another directive without affecting the DOM structure
@@ -170,3 +171,26 @@
     - structural directive has the ability to instantiate a template
       - ngIf is the shorthand for `<ng-template [ngIf]=""></ng-template>`: https://github.com/GongVictorFeng/summarization-of-angular/commit/327904af32893baa68809d6f9516640cd78f9cdf
       - create custom structural directive: https://github.com/GongVictorFeng/summarization-of-angular/commit/a81da0d986f897054d3ddf9fca4e91f14170ac06
+
+- View Encapsulation
+  - The styles are being encapsulated and are only visible inside the particular component view
+  - Angular takes every component and create a unique attribute for it like `_ngcontent-ng-c123`, then whenever Angular instantiates the template, it takes all the HTML elements of the template and stamp them with this special unique component attribute.
+  - The presence of this attribute in the component elments that allows Angular to take the component stylesheet and modify the styles to make them specific to the elements of the component only
+  - all elements inside the course-card are stamped with unique identifier:
+    ![alt text](Angular-core/public/assets/specific-identifier-for-view-encap.png)
+  - style the host HTML element of the component by `:host`
+    - a special selector that is part of the angular view encapsulation mechanism, it allows us to target the host element of the component itself within component style sheet
+    - the host styles are applied using `_nghost-ng-c123` to uniquely identifies the component host element
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/8e7c04bd72ee3372a8390648cd4cbd6d14171a0c
+      ![alt text](Angular-core/public/assets/nghost.png)
+  - style the elements that are provided by content projection
+    - bypass the view encapsulation by `::ng-deep`
+    - style is associated to the particular component
+      ![alt text](Angular-core/public/assets/ng-deep-before.png)
+    - style is not associated to the particular component
+      ![alt text](Angular-core/public/assets/ng-deep-after.png)
+  - style component depending on the presence of CSS styles outside the component itself by `:host-context`
+    - the part inside the parentheses of the host context modifier is made generic to the whole page
+    - the reminder part of the css selector after host-context is still specific to the component
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/6a7a3f56e36c17cf0c0f6358b42246719b027d4d
+      ![alt text](Angular-core/public/assets/host-context.png)
