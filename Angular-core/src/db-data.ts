@@ -97,3 +97,7 @@ export const COURSES: any = [
     category: 'ADVANCED',
   },
 ];
+
+export function findCourseById(courseId: number) {
+  return COURSES.find((course: any) => course.id == courseId);
+}
