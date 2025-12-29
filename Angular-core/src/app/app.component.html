@@ -5,25 +5,20 @@
   />
 </div>
 
-<ng-template [ngIf]="courses[0]">
-  <div class="courses salmon-theme">
-    <course-card
-      [highlighted]="false"
-      #highlighter="hl"
-      (toggleHighlight)="onToggle($event)"
-      (courseSelected)="onCourseSelected($event)"
-      [course]="courses[0]"
-    >
-      <!-- pass course image as the content of the course card  -->
-      <course-image
-        class="course-image"
-        [src]="courses[0].iconUrl"
-        *ngxUnless="!courses[0].iconUrl"
-      ></course-image>
+<div class="courses" *ngIf="courses$ | async as courses">
+  <course-card
+    *ngFor="let course of courses"
+    [highlighted]="false"
+    #highlighter="hl"
+    (toggleHighlight)="onToggle($event)"
+    (courseSelected)="onCourseSelected($event)"
+    [course]="course"
+  >
+    <!-- pass course image as the content of the course card  -->
+    <course-image class="course-image" [src]="course.iconUrl"></course-image>
 
-      <div class="course-description" (dblclick)="highlighter.toggle()">
-        {{ courses[0].longDescription }}
-      </div>
-    </course-card>
-  </div>
-</ng-template>
+    <div class="course-description" (dblclick)="highlighter.toggle()">
+      {{ course.longDescription }}
+    </div>
+  </course-card>
+</div>

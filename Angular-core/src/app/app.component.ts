@@ -1,17 +1,18 @@
 import {
   AfterViewInit,
   Component,
+  OnInit,
   QueryList,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { CourseCardComponent } from './course-card/course-card.component';
-import { COURSES } from '../db-data';
 import { Course } from '../model/course';
 import { CourseImageComponent } from './course-image/course-image.component';
 import { HighlightedDirective } from './directives/highlighted.directive';
-import { NgIf } from '@angular/common';
-import { NgxUnlessDirective } from './directives/ngx-unless.directive';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,13 +21,15 @@ import { NgxUnlessDirective } from './directives/ngx-unless.directive';
     CourseImageComponent,
     HighlightedDirective,
     NgIf,
-    NgxUnlessDirective,
+    NgFor,
+    HttpClientModule,
+    AsyncPipe,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements AfterViewInit {
-  courses: Course[] = [...COURSES];
+export class AppComponent implements OnInit, AfterViewInit {
+  courses$!: Observable<Course[]>;
 
   @ViewChild(HighlightedDirective)
   highlighted!: HighlightedDirective;
@@ -34,6 +37,11 @@ export class AppComponent implements AfterViewInit {
   @ViewChildren(CourseCardComponent)
   cards!: QueryList<CourseCardComponent>;
 
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.courses$ = this.http.get<Course[]>('api/courses');
+  }
   ngAfterViewInit(): void {
     console.log(this.highlighted);
   }
