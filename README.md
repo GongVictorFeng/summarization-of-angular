@@ -173,6 +173,7 @@
       - create custom structural directive: https://github.com/GongVictorFeng/summarization-of-angular/commit/a81da0d986f897054d3ddf9fca4e91f14170ac06
 
 - View Encapsulation
+
   - The styles are being encapsulated and are only visible inside the particular component view
   - Angular takes every component and create a unique attribute for it like `_ngcontent-ng-c123`, then whenever Angular instantiates the template, it takes all the HTML elements of the template and stamp them with this special unique component attribute.
   - The presence of this attribute in the component elments that allows Angular to take the component stylesheet and modify the styles to make them specific to the elements of the component only
@@ -194,3 +195,13 @@
     - the reminder part of the css selector after host-context is still specific to the component
     - https://github.com/GongVictorFeng/summarization-of-angular/commit/6a7a3f56e36c17cf0c0f6358b42246719b027d4d
       ![alt text](Angular-core/public/assets/host-context.png)
+
+- Service
+  - a class with a specific purpose: to provide reusable business logic, data, or functionality that can be shared across multiple components
+  - use the built-in service - HttpClient: https://github.com/GongVictorFeng/summarization-of-angular/commit/e14bb61dceba48e8818953739d001b98427d912a
+    - recommend to use observable and asyn pipe, whenever the component is destroyed, the aync pipe would take care of unsubscribe from the observable
+  - create custom service
+    - @Injectable decorator means the service is injectable in our components
+    - `projectedIn: 'root' ` means only one instance of the service would be created and is available at the root of the dependency injector - only one instance for the whole application
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/fb91daaa8a2d0e1fa3ad17da92b04efe3a056a92
+      ![alt text](Angular-core/public/assets/put-request-with-header.png)
