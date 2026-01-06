@@ -11,7 +11,7 @@
     [highlighted]="false"
     #highlighter="hl"
     (toggleHighlight)="onToggle($event)"
-    (courseSelected)="onCourseSelected($event)"
+    (courseChanged)="save($event)"
     [course]="course"
   >
     <!-- pass course image as the content of the course card  -->

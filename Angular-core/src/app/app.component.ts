@@ -11,8 +11,8 @@ import { Course } from '../model/course';
 import { CourseImageComponent } from './course-image/course-image.component';
 import { HighlightedDirective } from './directives/highlighted.directive';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CoursesService } from './services/courses.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,6 @@ import { Observable } from 'rxjs';
     HighlightedDirective,
     NgIf,
     NgFor,
-    HttpClientModule,
     AsyncPipe,
   ],
   templateUrl: './app.component.html',
@@ -37,10 +36,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChildren(CourseCardComponent)
   cards!: QueryList<CourseCardComponent>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
-    this.courses$ = this.http.get<Course[]>('api/courses');
+    this.courses$ = this.coursesService.loadCourses();
   }
   ngAfterViewInit(): void {
     console.log(this.highlighted);
@@ -49,7 +48,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   onToggle(isHighlighted: boolean) {
     console.log(isHighlighted);
   }
-  onCourseSelected(course: Course) {}
+  save(course: Course) {
+    this.coursesService
+      .saveCourse(course)
+      .subscribe(() => console.log('course saved'));
+  }
 
   //The first argument of tracking function is index, the second one is the element in the iterable
   trackCourse(index: number, course: Course) {

@@ -1,44 +1,24 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ContentChild,
-  ElementRef,
-  AfterViewInit,
-  TemplateRef,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../model/course';
-import { NgClass, NgTemplateOutlet } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'course-card',
-  imports: [NgClass, NgTemplateOutlet],
+  imports: [NgClass],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
 })
-export class CourseCardComponent implements AfterViewInit {
+export class CourseCardComponent {
   @Input({
     required: true,
   })
   course!: Course;
 
-  @Input()
-  emptyImgTml!: TemplateRef<any>;
-
   @Output()
-  courseSelected = new EventEmitter<Course>();
+  courseChanged = new EventEmitter<Course>();
 
-  @ContentChild('courseImage')
-  image!: ElementRef;
-
-  ngAfterViewInit(): void {
-    console.log(this.image);
-  }
-
-  onCourseViewed() {
-    console.log('card component - button clicked ...');
-    this.courseSelected.emit(this.course);
+  onSaveClicked(description: string) {
+    this.courseChanged.emit({ ...this.course, description });
   }
 
   cardClasses() {
