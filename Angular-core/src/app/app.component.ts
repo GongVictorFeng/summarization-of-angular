@@ -2,7 +2,6 @@ import {
   AfterViewInit,
   Component,
   Inject,
-  InjectionToken,
   OnInit,
   QueryList,
   ViewChild,
@@ -15,6 +14,7 @@ import { HighlightedDirective } from './directives/highlighted.directive';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CoursesService } from './services/courses.service';
+import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +28,7 @@ import { CoursesService } from './services/courses.service';
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [CoursesService],
+  providers: [{ provide: CONFIG_TOKEN, useValue: APP_CONFIG }],
 })
 export class AppComponent implements OnInit, AfterViewInit {
   courses$!: Observable<Course[]>;
@@ -39,7 +39,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChildren(CourseCardComponent)
   cards!: QueryList<CourseCardComponent>;
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(
+    private coursesService: CoursesService,
+    @Inject(CONFIG_TOKEN) private appConfig: AppConfig
+  ) {
+    console.log(appConfig);
+  }
 
   ngOnInit(): void {
     this.courses$ = this.coursesService.loadCourses();
