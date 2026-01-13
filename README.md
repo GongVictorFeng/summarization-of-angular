@@ -197,6 +197,7 @@
       ![alt text](Angular-core/public/assets/host-context.png)
 
 - Service
+
   - a class with a specific purpose: to provide reusable business logic, data, or functionality that can be shared across multiple components
   - use the built-in service - HttpClient: https://github.com/GongVictorFeng/summarization-of-angular/commit/e14bb61dceba48e8818953739d001b98427d912a
     - recommend to use observable and asyn pipe, whenever the component is destroyed, the aync pipe would take care of unsubscribe from the observable
@@ -205,3 +206,30 @@
     - `projectedIn: 'root' ` means only one instance of the service would be created and is available at the root of the dependency injector - only one instance for the whole application
     - https://github.com/GongVictorFeng/summarization-of-angular/commit/fb91daaa8a2d0e1fa3ad17da92b04efe3a056a92
       ![alt text](Angular-core/public/assets/put-request-with-header.png)
+
+- Dependency Injection
+  - easier to test these classes because we inject a dependancy that can be an actual service connecting to the backend and fetching data or a mock test implementation
+  - simply inject the dependency through constructor to the deeply nested component rather than passing dependency as input
+  - Behind Scene of Dependence Injection
+    - The dependency injection system allows angular to inject the dependencies
+    - Every dependency has internally an injection token, which is an unique identifier for the dependency and a provider factory function that is called to create denpendency
+    - Link the injection token with the dependency in the component that uses that dependency.
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/712ec32c6d1a045347671c78bb3b4bac996326f4
+  - can be simplified by using class name as injection token and the construct as provider factory function
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/95bb4b1f8152b787f99d7cb6de448ce19f098d1d
+  - Hierarchical Dependency Injection
+    - If the component does not find the provider of the dependency in its own list of providers, it moved on to its parent component to check if there is a provider that can satisfy the dependency, then the child component will take the dependency from the parent component.
+    - Will go on until the root component
+    - If the service is stateless, there is not need to create multiple copies of the service - make dependency singleton
+    - If the service has states that is private to the given part of the application, in that case defining a provider in the level of component and having this dependency injected to ensure that dependency is not visible anywhere else on the application
+    - The lifecycle of the local providers are linked to the component - component gets destroyed, those service instances are also removed
+  - Inject the plain JavaScript object
+    - Created the type of object, then create an object and injection token associated to the type
+    - Injected the Object in the component Using local providers
+    - https://github.com/GongVictorFeng/summarization-of-angular/commit/552def844b431508908ea4c266e5c5aa7fb2ed97
+      ![alt text](Angular-core/public/assets/object-injection.png)
+    - Make it Tree shakable to unbundle the Object to the component: https://github.com/GongVictorFeng/summarization-of-angular/commit/0a067a59c609dcc8b05635555748fdd3fa182c12
+    - `@Optional()` marks the dependency is optional
+    - `@Self()` overrides the default hierarchical dependency injection, the dependency will no longer obtain from the parent component
+    - `@SkipSelf()` overrides the default dependency injection, the dependency will no longer be searched in local providers, but fetch from parent component
+    - `@Host()` for directive to ensure that the dependency that gets injected here is from the host element. not from the higher up the dependency injection hierarchy
