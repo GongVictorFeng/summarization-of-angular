@@ -28,7 +28,6 @@ import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [{ provide: CONFIG_TOKEN, useValue: APP_CONFIG }],
 })
 export class AppComponent implements OnInit, AfterViewInit {
   courses$!: Observable<Course[]>;
