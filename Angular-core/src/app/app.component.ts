@@ -14,7 +14,7 @@ import { HighlightedDirective } from './directives/highlighted.directive';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CoursesService } from './services/courses.service';
-import { APP_CONFIG, AppConfig, CONFIG_TOKEN } from './config';
+import { AppConfig, CONFIG_TOKEN } from './config';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private coursesService: CoursesService,
     @Inject(CONFIG_TOKEN) private appConfig: AppConfig
   ) {
-    console.log(appConfig);
+    console.log(this.appConfig);
   }
 
   ngOnInit(): void {
