@@ -15,6 +15,7 @@ import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CoursesService } from './services/courses.service';
 import { AppConfig, CONFIG_TOKEN } from './config';
+import { COURSES } from '../db-data';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,7 @@ import { AppConfig, CONFIG_TOKEN } from './config';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  courses$!: Observable<Course[]>;
+  courses: Course[] = COURSES;
 
   @ViewChild(HighlightedDirective)
   highlighted!: HighlightedDirective;
@@ -45,9 +46,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log(this.appConfig);
   }
 
-  ngOnInit(): void {
-    this.courses$ = this.coursesService.loadCourses();
-  }
+  ngOnInit(): void {}
   ngAfterViewInit(): void {
     console.log(this.highlighted);
   }

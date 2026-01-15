@@ -5,19 +5,16 @@
   />
 </div>
 
-<div class="courses" *ngIf="courses$ | async as courses">
+<div class="courses">
   <course-card
     *ngFor="let course of courses"
-    [highlighted]="false"
-    #highlighter="hl"
-    (toggleHighlight)="onToggle($event)"
     (courseChanged)="save($event)"
     [course]="course"
   >
     <!-- pass course image as the content of the course card  -->
     <course-image class="course-image" [src]="course.iconUrl"></course-image>
 
-    <div class="course-description" (dblclick)="highlighter.toggle()">
+    <div class="course-description">
       {{ course.longDescription }}
     </div>
   </course-card>
