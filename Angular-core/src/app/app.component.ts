@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   Inject,
   OnInit,
@@ -15,7 +16,6 @@ import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CoursesService } from './services/courses.service';
 import { AppConfig, CONFIG_TOKEN } from './config';
-import { COURSES } from '../db-data';
 
 @Component({
   selector: 'app-root',
@@ -29,9 +29,10 @@ import { COURSES } from '../db-data';
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  courses: Course[] = COURSES;
+  courses$!: Observable<Course[]>;
 
   @ViewChild(HighlightedDirective)
   highlighted!: HighlightedDirective;
@@ -46,11 +47,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log(this.appConfig);
   }
 
-  onEditTitle() {
-    const newCourse = { ...this.courses[0], description: 'New Value' };
-    this.courses[0] = newCourse;
+  ngOnInit(): void {
+    this.courses$ = this.coursesService.loadCourses();
   }
-  ngOnInit(): void {}
+
+  onEditTitle() {}
   ngAfterViewInit(): void {
     console.log(this.highlighted);
   }
