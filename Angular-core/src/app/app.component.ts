@@ -46,6 +46,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log(this.appConfig);
   }
 
+  onEditTitle() {
+    this.courses[0].description = 'newValue';
+  }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
     console.log(this.highlighted);
