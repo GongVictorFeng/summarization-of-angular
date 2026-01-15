@@ -32,7 +32,7 @@ import { AppConfig, CONFIG_TOKEN } from './config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  courses$!: Observable<Course[]>;
+  courses!: Course[];
 
   @ViewChild(HighlightedDirective)
   highlighted!: HighlightedDirective;
@@ -48,7 +48,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.courses$ = this.coursesService.loadCourses();
+    this.coursesService
+      .loadCourses()
+      .subscribe((courses) => (this.courses = courses));
   }
 
   onEditTitle() {}
