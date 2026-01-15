@@ -6,7 +6,12 @@
   <ng-content select=".course-image"></ng-content>
   }
   <div class="course-description">
-    Edit Title: <input #newTitle [value]="course.description" />
+    Edit Title:
+    <input
+      #newTitle
+      [value]="course.description"
+      (keyup)="onTitleChange(newTitle.value)"
+    />
   </div>
   <ng-content select=".course-description"></ng-content>
 

@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Course } from '../../model/course';
 import { NgClass } from '@angular/common';
 
@@ -7,6 +13,7 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
   templateUrl: './course-card.component.html',
   styleUrl: './course-card.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseCardComponent {
   @Input({
@@ -19,6 +26,10 @@ export class CourseCardComponent {
 
   onSaveClicked(description: string) {
     this.courseChanged.emit({ ...this.course, description });
+  }
+
+  onTitleChange(newTitle: string) {
+    this.course.description = newTitle;
   }
 
   cardClasses() {
